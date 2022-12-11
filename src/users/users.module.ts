@@ -16,6 +16,9 @@ export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer){
     consumer
       .apply(LoggerMiddleware)
-      .forRoutes({ path: 'users/*', method: RequestMethod.DELETE });
+      .forRoutes({ 
+        path: 'users/*', 
+        method: RequestMethod.DELETE 
+      });
   }
 }

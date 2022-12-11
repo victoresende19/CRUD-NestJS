@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { LoggerMiddleware } from "./logger.middleware";
+import { LoggerDeleteMiddleware } from "./logger.middleware";
 import { User, UserSchema } from "./schemas/user.schema";
 import { UsersController } from "./users.controller";
 import { UsersRepository } from "./users.repository";
@@ -15,10 +15,10 @@ import { UsersService } from "./users.service";
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer){
     consumer
-      .apply(LoggerMiddleware)
+      .apply(LoggerDeleteMiddleware)
       .forRoutes({ 
         path: 'users/*', 
         method: RequestMethod.DELETE 
-      });
+      })
   }
 }

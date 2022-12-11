@@ -2,7 +2,7 @@ import { Injectable, NestMiddleware } from "@nestjs/common";
 import { NextFunction, Request, Response } from "express";
 
 @Injectable()
-export class LoggerMiddleware implements NestMiddleware{
+export class LoggerDeleteMiddleware implements NestMiddleware{
     use(req: Request, res: Response, next: NextFunction){
         console.log(`Logging DELETE request Ip: ${req.ip}`);
         console.log(`Logging DELETE request Path: ${req.path}`);

@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { LoggerUpdateMiddleware } from "./middleware/logger-update.middeware";
-import { LoggerDeleteMiddleware } from "./middleware/logger-delete.middleware";
+import { LoggerUpdateMiddleware } from "./middlewares/logger-update.middeware";
+import { LoggerDeleteMiddleware } from "./middlewares/logger-delete.middleware";
 import { User, UserSchema } from "./schemas/user.schema";
 import { UsersController } from "./users.controller";
 import { UsersRepository } from "./users.repository";

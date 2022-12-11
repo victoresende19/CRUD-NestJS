@@ -1,9 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseInterceptors } from '@nestjs/common';
 import { UpdateUserDto } from './dto/user.dto';
+import { BenchmarkInterceptor } from './Interceptors/benchamark.interceptor';
 import { User } from './schemas/user.schema';
 import { UsersService } from './users.service';
 
 @Controller('users')
+@UseInterceptors(BenchmarkInterceptor)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

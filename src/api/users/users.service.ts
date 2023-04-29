@@ -4,6 +4,7 @@ import { UpdateUserDto } from './dto/user.dto';
 
 import { User } from './schemas/user.schema';
 import { UsersRepository } from './users.repository';
+import { queryConditions } from '../users/utils/query-conditions'
 
 @Injectable()
 export class UsersService {
@@ -15,6 +16,11 @@ export class UsersService {
 
   async getUsers(): Promise<User[]> {
     return this.usersRepository.findAll({});
+  }
+
+  async getUsersByQuery(query: unknown): Promise<User[]> {
+    const queryFiltered = queryConditions(query)
+    return this.usersRepository.findQuery(queryFiltered);
   }
 
   async createUser(user: User): Promise<User> {

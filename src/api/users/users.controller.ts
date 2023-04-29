@@ -23,6 +23,13 @@ export class UsersController {
     });
   }
 
+  @Post('query')
+  async getUserByQuery(@Body() query: string, @Res() response): Promise<User> {
+    return response.json({
+      data: await this.usersService.getUsersByQuery(query)
+    });
+  }
+
   @Post()
   async createUser(@Body() user: User, @Res() response): Promise<User> {
     return response.json({
